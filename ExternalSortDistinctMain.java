@@ -17,8 +17,8 @@ public class ExternalMergeSort {
 
   public static void main(String args[]) {
     try {
-      File result = mergeSort(divideFileIntoChunks("/Users/karanpreetsingh/Documents/input.txt")).get(0);
-      distinctValues(result, "/Users/karanpreetsingh/Documents/ExternalMergeSort/results/finaloutput.txt");
+      File result = mergeSort(divideFileIntoChunks("input-file-path/input.txt")).get(0);
+      distinctValues(result, "output-file-path/finaloutput.txt");
     }
     catch (FileNotFoundException e) {
       e.printStackTrace();
@@ -44,7 +44,7 @@ public class ExternalMergeSort {
       if (i >= chunkSize) {
         i = 0;
         Collections.sort(tempList);
-        File newFile = new File("/Users/karanpreetsingh/Documents/ExternalMergeSort/TEMP_FILE_" + chunkId);
+        File newFile = new File("temp-file-path/TEMP_FILE_" + chunkId);
         newFile.deleteOnExit();
         BufferedWriter bw = new BufferedWriter(new FileWriter(newFile));
         chunkFiles.add(newFile);
